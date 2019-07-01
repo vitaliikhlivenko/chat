@@ -1,11 +1,11 @@
 ## How to launch app: ##
-	1 server:
+	* server:
 		1 npm install -g gulp-cli
+		2 npm install
+		3 npm start
+	* client: 
 		1 npm install
-		1 npm start
-	1 client: 
-		1 npm install
-		1 npm start
+		2 npm start
 	
 
 	Open http://localhost:4200
