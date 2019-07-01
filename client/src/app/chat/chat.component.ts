@@ -23,14 +23,14 @@ export class ChatComponent implements OnInit {
     this.initSocketConnection();
   }
 
-  formGenerator() {
+  private formGenerator(): void {
     this.form = this.fb.group({
       user: ['', Validators.required],
       message: ['']
     });
   }
 
-  initSocketConnection() {
+  private initSocketConnection(): void {
     this.socketService.initSocket();
     this.socketService.onMessage()
       .subscribe((message: Message) => {
@@ -38,11 +38,10 @@ export class ChatComponent implements OnInit {
       });
   }
 
-  send(data: Message) {
+  private send(data: Message): void {
     this.socketService.send(data);
     this.form.patchValue({
       message: ''
     });
   }
-
 }
