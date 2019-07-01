@@ -1,0 +1,23 @@
+<mat-drawer-container class="wrapper">
+    <mat-drawer mode="side" opened>
+        <div class=container>
+            <form [formGroup]="form">
+                <mat-form-field floatLabel="never">
+                    <input placeholder="Type your name" matInput formControlName="user" />
+                </mat-form-field>
+                <br />
+                <mat-form-field>
+                    <textarea matInput placeholder="Type your message" formControlName="message"></textarea>
+                </mat-form-field>
+                <button [disabled]="form.invalid" mat-flat-button color="primary" (click)="send(form.value)">Send Message</button>
+            </form>
+        </div>
+    </mat-drawer>
+    <mat-drawer-content class="list">
+        <mat-list>
+            <mat-list-item *ngFor="let item of messages">                 
+                <p><i class="material-icons md-dark">face</i> <b> {{item.name}}:</b> {{item.message}}</p>
+            </mat-list-item>
+        </mat-list>
+    </mat-drawer-content>
+</mat-drawer-container>
